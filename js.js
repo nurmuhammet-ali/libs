@@ -55,3 +55,22 @@ l.require([
     });
 */
 
+Event.fire = function(event, el) {
+  if (el)
+    document.querySelector(el).dispatchEvent(new Event(event));
+  else
+    document.dispatchEvent(new Event(event));
+}
+
+Event.listen = function(event, elemOrCallback, callback) {
+  if (typeof elemOrCallback === 'function')
+    document.addEventListener(event, elemOrCallback);
+  else
+    document.querySelector(elemOrCallback).addEventListener(event, callback);
+}
+
+// Usage
+// Event.fire('hello') // fire Event to dom
+// Event.fire('hello', '#root') // fire Event to specific element
+// Event.listen('hello', () => console.log('Hello'));  // listen an Event of dom
+// Event.listen() // listen specific Event of el
