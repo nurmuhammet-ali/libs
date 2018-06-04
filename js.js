@@ -13,7 +13,7 @@ function addClass(el,new_class){
        return n;
 }
 
-// usage 
+// usage
 // `<button onclick="addClass(this, 'round')">Add a class</button>`
 
 var Loader = function () { }
@@ -48,7 +48,7 @@ Loader.prototype = {
 var l = new Loader();
 l.require([
     "example-script-1.js",
-    "example-script-2.js"], 
+    "example-script-2.js"],
     function() {
         // Callback
         console.log('All Scripts Loaded');
@@ -70,7 +70,21 @@ Event.listen = function(event, elemOrCallback, callback) {
 }
 
 // Usage
-// Event.fire('hello') // fire Event to dom
-// Event.fire('hello', '#root') // fire Event to specific element
-// Event.listen('hello', () => console.log('Hello'));  // listen an Event of dom
-// Event.listen() // listen specific Event of el
+// Event.fire('event') // fire Event to dom
+// Event.fire('event', '#root') // fire Event to specific element
+// Event.listen('event', () => console.log('Hello'));  // listen an Event of dom
+// Event.listen('event', '#root', () => alert('msg');) // listen specific Event of el
+
+// ToggleVisability
+function toggle_visibility(e) {
+   var e = document.getElementById(id);
+   if (e.style.display == 'block')
+      e.style.display = 'none';
+   else
+      e.style.display = 'block';
+}
+
+// usage
+// `<a href="#" onclick="toggle_visibility('foo');">Click here to toggle visibility of element #foo</a>
+// <div id="foo">This is foo</div>`
+
