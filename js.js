@@ -88,3 +88,18 @@ function toggle_visibility(e) {
 // `<a href="#" onclick="toggle_visibility('foo');">Click here to toggle visibility of element #foo</a>
 // <div id="foo">This is foo</div>`
 
+// check the Mac or Pc
+function pcOrMac(mac, pc) {
+  if (navigator.userAgent.indexOf('Mac OS X') != -1)
+    mac();
+  else
+    pc();
+}
+
+// Check if browser is IE
+function iExplorer(callback) {
+  var isMSIE = /*@cc_on!@*/0;
+
+  if (isMSIE)
+  	callback();
+}
