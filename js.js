@@ -77,13 +77,12 @@ Event.listen = function(event, elemOrCallback, callback) {
 
 // ToggleVisability
 function toggle_visibility(id) {
-  document.addEventListener('DOMContentLoaded', function(e) {
      let el = document.getElementById(id);
+     console.log(el);
      if (el.style.display == 'block')
         el.style.display = 'none';
      else
         el.style.display = 'block';
-  });
 }
 
 // usage
