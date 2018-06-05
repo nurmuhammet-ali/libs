@@ -107,7 +107,7 @@ function iExplorer(callback) {
 // return pevious element
 function prevEl(el) {
     if (el.previousElementSibling == null) {
-        body.insertAdjacentElement('afterbegin', document.createElement('div'));
+        document.getElementsByTagName('body')[0].insertAdjacentElement('afterbegin', document.createElement('div'));
     }
     return el.previousElementSibling;
   }
