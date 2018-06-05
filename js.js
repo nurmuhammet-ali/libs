@@ -103,3 +103,11 @@ function iExplorer(callback) {
   if (isMSIE)
   	callback();
 }
+
+// return pevious element
+function prevEl(el) {
+    if (el.previousElementSibling == null) {
+        body.insertAdjacentElement('afterbegin', document.createElement('div'));
+    }
+    return el.previousElementSibling;
+  }
