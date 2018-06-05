@@ -76,12 +76,14 @@ Event.listen = function(event, elemOrCallback, callback) {
 // Event.listen('event', '#root', () => alert('msg');) // listen specific Event of el
 
 // ToggleVisability
-function toggle_visibility(e) {
-   var e = document.getElementById(id);
-   if (e.style.display == 'block')
-      e.style.display = 'none';
-   else
-      e.style.display = 'block';
+function toggle_visibility(id) {
+  document.addEventListener('DOMContentLoaded', function(e) {
+     let el = document.getElementById(id);
+     if (el.style.display == 'block')
+        el.style.display = 'none';
+     else
+        el.style.display = 'block';
+  });
 }
 
 // usage
