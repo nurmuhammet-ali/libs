@@ -1,6 +1,6 @@
 // EventListenerPolyfil
 (function(win, doc){
-	if(win.addEventListener)return;		//No need to polyfill
+	if(win.addEventListener) return;		//No need to polyfill
 
 	function docHijack(p){var old = doc[p];doc[p] = function(v){return addListen(old(v))}}
 	function addEvent(on, fn, self){

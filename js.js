@@ -1,16 +1,15 @@
-function addClass(el,new_class){
-       var i,n=0;
+function addClass(el, new_class){
+  var i, n = 0;
+  new_class = new_class.split(",");
+  
+  for (i = 0; i < new_class.length; i++) {
+    if ((" " + el.className + " ").indexOf(" " + new_class[i] + " ") == -1) {
+      el.className += " " + new_class[i];
+      n++;
+    }
+  }
 
-       new_class=new_class.split(",");
-
-       for(i=0;i<new_class.length;i++){
-               if((" "+el.className+" ").indexOf(" "+new_class[i]+" ")==-1){
-                       el.className+=" "+new_class[i];
-                       n++;
-               }
-       }
-
-       return n;
+  return n;
 }
 
 // usage
@@ -56,17 +55,14 @@ l.require([
 */
 
 Event.fire = function(event, el) {
-  if (el)
-    document.querySelector(el).dispatchEvent(new Event(event));
-  else
-    document.dispatchEvent(new Event(event));
+  return ( el ) ? document.querySelector(el).dispatchEvent(new Event(event));
+       : document.dispatchEvent(new Event(event));
 }
 
 Event.listen = function(event, elemOrCallback, callback) {
-  if (typeof elemOrCallback === 'function')
-    document.addEventListener(event, elemOrCallback);
-  else
-    document.querySelector(elemOrCallback).addEventListener(event, callback);
+  return (typeof elemOrCallback === 'function') 
+            ? document.addEventListener(event, elemOrCallback);
+            : document.querySelector(elemOrCallback).addEventListener(event, callback);
 }
 
 // Usage
@@ -76,12 +72,8 @@ Event.listen = function(event, elemOrCallback, callback) {
 // Event.listen('event', '#root', () => alert('msg');) // listen specific Event of el
 
 // ToggleVisability
-function toggle_visibility(id) {
-     let el = document.getElementById(id);
-     if (el.style.display == 'block')
-        el.style.display = 'none';
-     else
-        el.style.display = 'block';
+function toggle_visibility(el) {
+  return (el.style.display == 'block') ? el.style.display = 'none' : el.style.display = 'block';
 }
 
 // usage
